@@ -26,9 +26,12 @@ function readFile(filename){
  * success 成功之后的回调
  * reason失败之后的回调
  */
-readFile('12.txt').then(function(data){
+readFile('1.txt').then(function(data){
    console.log(data);
    return readFile(data);
+}).then(function(data){
+    console.log(data);
+    return readFile(data);
 }).then(function(data){
     console.log(data);
 }).catch(function(reason){//可以捕获错误
