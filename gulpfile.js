@@ -1,7 +1,7 @@
 var gulp = require('gulp');//引入gulp模块
 //此插件会自动加载在package.json中所有的插件
 //所有的gulp插件会作为$的属性
-var $ = require('gulp-load-plugins')();//引入此插件
+var $ = require('./gulp-load-plugins')();//引入此插件
 //var concat = require('gulp-concat');
 /**
  * npm install gulp-concat --save-dev
