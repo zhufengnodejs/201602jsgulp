@@ -11,8 +11,31 @@
 <div id="div2"></div>
 </body>
 <script>
-   $(document).ready(function(){
+    $(document).ready(function () {
+        function readUrl(url) {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    method: 'get',
+                    url: url,
+                    async: true
+                }).done(function (result) {
+                    resolve(result);//成功后的回调
+                }).fail(function (err) {
+                    reject(err);//失败之后的回调
+                });
+            })
+        }
 
-   });
+        readUrl('/ajax1').then(function (data) {
+          document.querySelector('#div1').innerHTML  = data;
+          return readUrl('/ajax2');
+        }).then(function (data) {
+            document.querySelector('#div2').innerHTML  = data;
+            console.log(data);
+        }).catch(function (reason) {
+            console.error(reason);
+        });
+    })
+
 </script>
 </html>
