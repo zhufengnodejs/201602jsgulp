@@ -42,3 +42,14 @@ npm install gulp --save-dev
 
 ##本地模块的查找流程
 从本地的node_modules中查找，如果找不到向上级查找，如果一直到根目录 都没有找到，就报错。
+
+##添加gulpfile.js配置文件并编写一个自定义的任务
+
+```
+var gulp = require('gulp');//引入gulp模块
+//定义一个任务
+//名字叫hello
+gulp.task('hello',function(){
+    console.log('hello');
+});
+```
