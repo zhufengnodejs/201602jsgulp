@@ -1,20 +1,20 @@
 var gulp = require('gulp');//引入gulp模块
+gulp.task('buy',function(){
+    console.log('买大米');
+});
 /**
- * 定义一个任务
- * 把src 下面所有的文件全部拷贝到build 目录下
- * 1.拷贝所有的css文件
- * 3. 拷贝除了jpg以外的所有图片
- *
- * ! 表示取反，排除掉此模式
+ * 当你定义一个任务的时候如果有这个形参，callback
+ * 表示这个任务有异步的代码
+ * 那么在异步任务完成后必须调用callback,如果不调用代表此任务没有完成
+ * 后续任务就得不到执行
  */
-gulp.task('copy',function(){
-    //需要所有的图片，除了jpg
-    /*gulp.src(['./src/css/!**!/!*.css','
-    ./src/imgs/!**!/!*','!./src/imgs/!**!/!*.jpg'])
-        .pipe(gulp.dest('./build'))*/
+gulp.task('cook',['buy'],function(callback){
+    setTimeout(function(){
+        console.log('煮米饭')
+        callback();//当异步任务完成的时候调用此回调函数
+    },5000);
+});
 
-    //需要所有的png和gif图片，其它不要 {png,gif} 表示任何一种
-    gulp.src(['./src/css/**/*.css','./src/imgs/**/*.{png,gif}'])
-        .pipe(gulp.dest('./build'))
-    //目标路径是一个文件夹的名字
+gulp.task('eat',['cook'],function(){
+    console.log('吃米饭');
 });
