@@ -27,7 +27,7 @@ function readFile(filename){
  * reason失败之后的回调
  */
 readFile('1.txt').then(function(data){
-    console.log(data);
+    console.log('resolve',data);
 },function(reason){
-    console.error(reason);
+    console.error('reject',reason);
 });
