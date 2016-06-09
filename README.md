@@ -53,3 +53,20 @@ gulp.task('hello',function(){
     console.log('hello');
 });
 ```
+
+#练习 
+源文件
+app
+  index.html
+  js
+  less
+  images
+
+
+建一个综合任务
+1. js 合并压缩复制到dist
+2. less 编译 合并 压缩 复制到dist
+3. image 压缩 复制到dist
+4. index.html进行压缩
+5. 服务器 负责预览dist目录下面的文件并且当源文件发生改变后自动刷新
+
