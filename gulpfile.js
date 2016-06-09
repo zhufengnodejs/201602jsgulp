@@ -1,22 +1,14 @@
 var gulp = require('gulp');
-var connect = require('gulp-connect');
-
-gulp.task('copyHtml',function(){
-    gulp.src('./src/index.html')
-        .pipe(gulp.dest('./build'))
-        .pipe(connect.reload())//拷贝完成后自动刷新浏览器页面
-});
-gulp.task('watch',function(){
-    gulp.watch('./src/index.html',['copyHtml']);
+var imagemin = require('gulp-imagemin');
+jshint = require("gulp-jshint");
+gulp.task('image',function(){
+    gulp.src('./src/img/big.bmp')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./build/img'));
 });
 
-gulp.task('serve',function(){
-    connect.server({
-//如果访问的是 /index.html 那么 /指的就是build目录
-        root:'./build',//服务的根目录,
-        port:8080, //服务的端口
-        livereload:true // 可以自动刷新浏览器
-    })
+gulp.task('jshint', function () {
+    gulp.src('src/js/*.js')
+        .pipe(jshint()) //进行代码检查
+        .pipe(jshint.reporter()); // 输出检查结果
 });
-
-gulp.task('default',['copyHtml','serve','watch']);

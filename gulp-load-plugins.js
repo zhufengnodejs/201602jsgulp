@@ -13,7 +13,9 @@ module.exports = function(){
         var reg=/^gulp-([a-zA-Z-]+)/;
         for(var key in DevObj){
             if(reg.test(key)){
-                $[reg.exec(key)[1]]=require(''+key+'')
+                var originalName = reg.exec(key)[1];// minify-html
+                //按-进行分隔，然后第一个单词不变，后续其它单词首字母大写
+                $[originalName]=require(''+key+'')
             }
         }
         return $;
