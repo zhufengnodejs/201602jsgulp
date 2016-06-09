@@ -1,0 +1,12 @@
+.mixin(@a) when(length(@a) = 3){
+  background-color: red;
+}
+
+.mixin(@a) when(ceil(@a) = 2){
+  background-color: green;
+  width:ceil(@a);
+}
+
+.div1{
+  .mixin(1.1)
+}

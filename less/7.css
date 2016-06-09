@@ -1,0 +1,10 @@
+.div1 {
+  width: 100px;
+  height: 100px;
+}
+.div1 p {
+  font-size: 20px;
+}
+.div1 .logo:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,16 @@
+//它能匹配第一个参数为red
+.mixin(red){
+  color:red;
+}
+
+.mixin(green){
+  color:green;
+}
+//匹配所有的值
+.mixin(@_){
+  display:block;
+}
+
+.div1{
+  .mixin(green)
+}

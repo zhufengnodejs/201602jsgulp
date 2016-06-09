@@ -1,0 +1,14 @@
+.bordered {
+  border-top: 1px solid red;
+  border-bottom: 1px solid blue;
+}
+.div1 {
+  color: red;
+  border-top: 1px solid red;
+  border-bottom: 1px solid blue;
+}
+.div2 {
+  color: green;
+  border-top: 1px solid red;
+  border-bottom: 1px solid blue;
+}
